@@ -1,0 +1,10 @@
+# Build
+bin/
+obj/
+Debug/
+Release/
+
+# VS
+.vs/
+*.user
+*.suo
