@@ -9,6 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TaskManager.Models;
+using System.ComponentModel;
 
 namespace TaskManager;
 
@@ -18,10 +19,15 @@ namespace TaskManager;
 public partial class MainWindow : Window
 {
     private TaskListManager taskManager = new TaskListManager();
+    private CollectionViewSource collectionView = new CollectionViewSource();
     public MainWindow()
     {
         InitializeComponent();
-        TaskListBox.ItemsSource = taskManager.List;
+        taskManager.LoadFromFile();
+        collectionView.Source = taskManager.List;
+        collectionView.SortDescriptions.Add(new SortDescription(nameof(TaskItem.Priority), ListSortDirection.Descending));
+        TaskListBox.ItemsSource = collectionView.View;
+        
     }
 
     private void Button_Click(object sender, RoutedEventArgs e)
