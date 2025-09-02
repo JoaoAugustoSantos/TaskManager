@@ -29,4 +29,14 @@ public partial class MainWindow : Window
         AddTaskWindow newWindow = new AddTaskWindow(taskManager);
         newWindow.ShowDialog();
     }
+
+    private void RemoveTask_Click(object sender, RoutedEventArgs e)
+    {
+        Button clickedButton = (Button)sender;
+        TaskItem taskToRemove = (TaskItem)clickedButton.DataContext;
+        if (taskToRemove != null)
+        {
+            taskManager.RemoveTask(taskToRemove);
+        }
+    }
 }

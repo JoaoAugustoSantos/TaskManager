@@ -5,14 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TaskManager"
         mc:Ignorable="d"
-        Title="AddTaskWindow" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="TaskName" HorizontalAlignment="Center" Margin="0,141,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button Content="Save" HorizontalAlignment="Center" Margin="0,266,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Cancel" HorizontalAlignment="Center" Margin="0,303,0,0" VerticalAlignment="Top"/>
-        <Label Content="Task Name" HorizontalAlignment="Center" Margin="0,115,0,0" VerticalAlignment="Top"/>
-        <Label Content="Priority" HorizontalAlignment="Center" Margin="0,185,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="PriorityComboBox" HorizontalAlignment="Center" Margin="0,216,0,0" VerticalAlignment="Top" Width="120"/>
+        Title="Add Task" Height="350" Width="400">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
+        <TextBlock Text="Add New Task" FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,20" Grid.Row="0"/>
+
+        <StackPanel Grid.Row="1" Margin="0,0,0,10">
+            <TextBlock Text="Task Name" Margin="0,0,0,5"/>
+            <TextBox x:Name="TaskName" Width="200"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Margin="0,0,0,20">
+            <TextBlock Text="Priority" Margin="0,0,0,5"/>
+            <ComboBox x:Name="PriorityComboBox" Width="200"/>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Content="Save" Width="80" Click="Button_Click" Margin="0,0,10,0"/>
+            <Button Content="Cancel" Width="80" Click="Button_Click_1"/>
+        </StackPanel>
     </Grid>
 </Window>

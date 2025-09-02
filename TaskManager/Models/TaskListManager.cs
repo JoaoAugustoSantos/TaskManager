@@ -18,5 +18,10 @@ namespace TaskManager.Models
             List.Add(newTask);
         }
 
+        public void RemoveTask(TaskItem newTask)
+        {
+            List.Remove(newTask);
+        }
+
     }
 }
